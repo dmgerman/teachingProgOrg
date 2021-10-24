@@ -1,0 +1,207 @@
+#+STARTUP: showall
+#+TITLE: Example 
+# by default, the result of a block is standard output
+#+PROPERTY: header-args         :results output
+#+PROPERTY: header-args:C       :main no :flags -std=c99 -Wall --pedantic -Werror
+#  use C+++ instead of C++ (L+ means add arguments to language L)
+#+PROPERTY: header-args:C+++    :flags -std=c++17 -Wall --pedantic -Werror
+# specify the default database
+# result:   guarantees the result is typeset as a table
+# colnames: orgmode does not insert column names, force it to do it
+#+PROPERTY: header-args:sqlite  :db /tmp/rip.db :colnames yes :results  table
+#+OPTIONS: ^:nil
+
+#+begin_src emacs-lisp
+(setq left-margin-width 10)
+(setq right-margin-width 10)  
+(setq line-spacing 0.2) 
+#+end_src
+
+
+* Table of contents :TOC:
+- [[#header-args][header-args]]
+- [[#c][C]]
+- [[#c-1][C++]]
+- [[#sql][SQL]]
+- [[#python][Python]]
+- [[#advanced-org-features][Advanced org-features]]
+
+* header-args
+
+Using *header-args* will reduce the amount of information you have to
+include in every block header (see top of this file)
+
+- Use *:results output*
+  - this guarantees that the result of the block is its *output to stdout*
+  - otherwise the result of the block is the last expression
+
+- *github* only shows the *#+RESULTS* if *:exports both*
+  - but it does not respect *header-args*
+  - instead, you have to manually add it to each block
+  - github will display the file with *different colors and typesetting*
+  - but it will *nicely typeset the file* nonetheless
+
+- use *yasnippets* to minimize what you have to type
+
+* C
+
+#+begin_src C   :exports both
+#include <stdio.h>
+
+int main(void) {
+  printf("hello world\n");
+}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+hello world
+#+end_example
+
+- *Warnings and errors* are displayed during compilation
+- but *line numbers do not match*, due to code that is inserted by org
+
+#+begin_src C :exports both 
+int f(void) {
+  return ;
+}
+int main(void) {
+  f();
+  }
+#+end_src
+
+#+RESULTS:
+
+- A nice thing is that org can *automatically insert* a *main* function:
+  - and you can specify which *#includes* to add
+
+#+begin_src C  :main yes :includes <stdio.h> :exports both
+int a = 0;
+int b = 3;
+printf("The result is %d\n", a + b);
+#+end_src
+
+#+RESULTS:
+#+begin_example
+The result is 3
+#+end_example
+
+
+* C++
+
+- Use *cpp* instead of C++ (both work, but you can only set global arguments using PROPERTY if you use cpp)
+
+#+begin_src C++ :includes <iostream> :exports both
+int a = 100;
+int b = 'a';
+if (a = b) 
+  std::cout << "hello world\n";
+#+end_src
+
+
+#+begin_src cpp :includes <iostream> :exports both
+int a = 100;
+int b = 'a';
+if (a == b) 
+  std::cout << "They are equal\n";
+else
+  std::cout << "They are not\n";
+#+end_src
+
+#+RESULTS:
+#+begin_example
+They are not
+#+end_example
+
+* SQL
+
+Create a table, and populate it
+
+#+begin_src sqlite  :exports both
+drop table if exists R;
+create table R(a,b);
+insert into R values (1,'test'), (2, 'example'), (3, 'one more');
+#+end_src
+
+#+RESULTS:
+
+Simple select
+
+#+begin_src sqlite :exports both
+select * from R;
+#+end_src
+
+#+RESULTS:
+| a | b        |
+|---+----------|
+| 1 | test     |
+| 2 | example  |
+| 3 | one more |
+
+
+* Python
+
+You can specify the version of python you want to run using the
+variable *org-babel-python-command* (see configuration file)
+
+Simple program:
+
+#+begin_src python  :exports both
+print("hello world")
+#+end_src
+
+#+RESULTS:
+#+begin_example
+hello world
+#+end_example
+
+A more complex program
+
+#+begin_src python   :exports both
+def square(x):
+    return x*x
+
+print(list(map(square, range(1,10))))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+#+end_example
+
+
+* Advanced org-features
+
+Of course you can use advanced org-features, but remember that
+students might be confused, since they a are learning programming, not
+org-mode
+
+#+name: square
+#+begin_src python
+def square(x):
+    return x*x
+#+end_src
+
+#+begin_src python   :exports both :noweb yes
+<<square>>
+print(list(map(square, range(1,10))))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+#+end_example
+
+- so make sure you *warn them*
+
+#+begin_src python   :exports both :noweb yes
+<<square>> # this is not Python! this is emacs
+           # it inserts the blocked name square (see above)
+           # here
+print(list(map(square, range(1,10))))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+#+end_example
