@@ -98,7 +98,7 @@ Remove  the tool bars
   :init
    (progn
 ;     (setq org-sticky-header-heading-star " ")
-;     (setq org-sticky-header-always-show-header t)
+     (setq org-sticky-header-always-show-header t)
      (add-hook 'org-mode-hook 'org-sticky-header-mode)
     )
   )
