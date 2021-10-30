@@ -183,7 +183,7 @@ summary(mtcars)
 
 It will automatically insert them. Make sure to run *org-toggle-inline-images* to not nil
 
-#+begin_src R :file testR.png :results output graphics file 
+#+begin_src R :file testR.png :results output graphics file  :exports both
 library(lattice)
 xyplot(1:10 ~ 1:10)
 #+end_src
