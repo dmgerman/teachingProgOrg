@@ -14,7 +14,7 @@
 # in programming (specially _)
 #+OPTIONS: ^:nil
 
-(the table of contents is automatically generated using :TOC: property, see [[./dmg-org.org][emacs code]])
+(the table of contents is automatically generated using :TOC: property, see [[./prog_teaching_org.org][emacs code]])
 
 * Table of contents :TOC:
 - [[#how-to-use][How to use]]
@@ -60,8 +60,8 @@
 Then you can decide how to integrate it to your workflow:
 
 - Run it as is (I recommend you use [[https://github.com/plexus/chemacs][chemacs]] to switch between your own configuration and this one)
-  - when teaching run one instance of emacs specifically configured for this purpose
-- Cut-and-paste from dmg-org.org to your own configuration files
+  - when teaching, run one instance of emacs specifically configured for this purpose
+- Cut-and-paste from [[prog_teaching_org.org]] to your own configuration files
 
 Perhaps this code can one day become a module.
 

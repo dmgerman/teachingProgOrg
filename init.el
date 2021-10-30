@@ -38,10 +38,6 @@
 
 (require 'use-package)
 (require 'org)
-
 ;; load it from org file
 
-;;(org-babel-load-file
-;; (concat (file-name-directory load-file-name) "dmg-org.org"))
-
-(org-babel-load-file "~/.emacs.d/dmg-org.org")
+(org-babel-load-file (concat (file-name-directory load-file-name) "prog_teaching_org.org"))
