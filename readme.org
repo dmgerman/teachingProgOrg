@@ -41,6 +41,7 @@
 - [[#python-specific][Python specific]]
 - [[#advanced-org-features][Advanced org-features]]
 - [[#some-potential-issues-you-might-encounter][Some potential issues you might encounter]]
+- [[#conclusion][Conclusion]]
 - [[#ignore][Ignore]]
 
 * Why use org-mode for teaching programming?
@@ -245,6 +246,11 @@ int main(void) {
 }
 #+end_src
 
+#+RESULTS:
+#+begin_example
+hello world
+#+end_example
+
 * header-args
 
 Using *header-args* will reduce the amount of information you have to include in every block header (see top of this file)
@@ -256,10 +262,7 @@ Use *:results output*
 #+end_example
 
   - this guarantees that the result of any block is its *output to stdout*
-  - otherwise the result of the block is the last expression
-
-The org default is *:results value*, which keeps the result of the last expression
-(language dependent).
+  - The org default is *:results value*, which keeps the result of the last expression (language dependent).
 
 #+begin_src emacs-lisp :results value :exports both
 (+ 10 1)
@@ -288,9 +291,8 @@ Changing it to *:results output* keeps *standard output*:
 #+PROPERTY: header-args:C       :main no :flags -std=c99 -Wall --pedantic -Werror
 #+end_example
 
-  - do not wrap block in a main function (i.e. block must be complete program)
-  - provide the following "flags" to the compiler: *-std=c99 -Wall --pedantic -Werror*
-  - *they are language dependent*
+  - *:main no* do not wrap block in a main function (i.e. block must be complete program)
+  - *:flags ...* provide the following "flags" to the compiler: *-std=c99 -Wall --pedantic -Werror*
 
 Example:
 
@@ -368,12 +370,13 @@ They are not
 
 * SQL specific
 
-- You can use any of the *major backends*.
-- Each has different PROPERTY parameters
-  - name of the database
-  - include columns in the results
-  - *important*: use *:results table*
-- The examples below are using *sqlite3*.
+- *important*:
+  - use *:results table* (results are rendered as tables)
+  - use *:colnames yes* (display the name of the attributes of the relation)
+- You can use any of the *major backends* (postgresql, oracle, mysql, sqlite3...)
+- Each backend has different PROPERTY parameters
+  - check its documentation
+- The examples below are using *sqlite3* (begin_src sqlite)
 
 #+begin_example
 #+PROPERTY: header-args:sqlite  :db /tmp/rip.db :colnames yes :results  table
@@ -467,21 +470,26 @@ print(list(map(square, range(1,10))))
 
 - Some programming characters are used by org
 
-- _ is the biggest issue, use the following in the header so it is exported properly:
+- *_* (underscore): use the following in the header so it is exported properly:
 
 #+begin_example
 #+OPTIONS: ^:nil
 #+end_example
 
-- | (pipe character): eg | and || operators in C/C++
+- *|* (pipe character): eg | and || operators in C/C++
 
   | operator | meaning | note                                                                 |
   |----------+---------+----------------------------------------------------------------------|
   | &&       | and     |                                                                      |
   |          | or      | no way to include a pipe symbol without making it unreadable in org  |
 
-- Some database results might contain | and mess the rendering of the result
+  Some database results might contain | and mess the rendering of the result
 
+* Conclusion
+
+- org-mode and emacs make for a great environment to teach programming
+- single format where code is executed and its results inserted
+- github is a great tool that can make publishing easy
 
 * Ignore
 
