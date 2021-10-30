@@ -183,9 +183,6 @@ summary(mtcars)
 
 It will automatically insert them.
 - Make sure to run *org-toggle-inline-images* to not nil
-- Unfortunately github does not render it in-place
-  - by default, the reference is *file:<filename>*,
-  - but github wants to have a path: *file:./<filename>*
 
 #+begin_src R :file testR.png :results output graphics file  :exports both
 library(lattice)
