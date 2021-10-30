@@ -17,6 +17,7 @@
 (the table of contents is automatically generated using :TOC: property, see [[./dmg-org.org][emacs code]])
 
 * Table of contents :TOC:
+- [[#how-to-use][How to use]]
 - [[#why-use-org-mode-for-teaching-programming][Why use org-mode for teaching programming?]]
   - [[#limitations][Limitations]]
   - [[#how-i-do-it][How I do it]]
@@ -43,6 +44,26 @@
 - [[#some-potential-issues-you-might-encounter][Some potential issues you might encounter]]
 - [[#conclusion][Conclusion]]
 - [[#ignore][Ignore]]
+
+* How to use
+
+- This repo is self-contained
+
+- If you want to try it, save/rename your .emacs.d configuration files
+  and use this repo instead
+
+  - it will install the required dependencies
+  - I have used emacs 27.2 (it might run with earlier versions)
+
+- Then run emacs and try the file readme.org or create your own
+
+Then you can decide how to integrate it to your workflow:
+
+- Run it as is (I recommend you use [[https://github.com/plexus/chemacs][chemacs]] to switch between your own configuration and this one)
+  - when teaching run one instance of emacs specifically configured for this purpose
+- Cut-and-paste from dmg-org.org to your own configuration files
+
+Perhaps this code can one day become a module.
 
 * Why use org-mode for teaching programming?
 
@@ -484,6 +505,7 @@ print(list(map(square, range(1,10))))
   |          | or      | no way to include a pipe symbol without making it unreadable in org  |
 
   Some database results might contain | and mess the rendering of the result
+
 
 * Conclusion
 
