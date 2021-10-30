@@ -401,14 +401,16 @@ print(list(map(square, range(1,10))))
 * Some potential issues you might encounter
 
 - Some programming characters are used by org
-- Tables
-  - I have not found a way to create a table that contains the pipe |
-  - Some database results might contain | and mess the rendering of the result
 
-Example: operators in C++:
+- Example: operators in C/C++:
 
-  | && | and |                                                              |
-  |    | or  | no way to include a pipe without making it unreadable in org |
+  | operator | meaning | note                                                         |
+  |----------+---------+--------------------------------------------------------------|
+  | &&       | and     |                                                              |
+  |          | or      | no way to include a pipe without making it unreadable in org |
+
+- Some database results might contain | and mess the rendering of the result
+
 
 * TODO remove
 
