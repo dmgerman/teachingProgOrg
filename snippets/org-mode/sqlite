@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: sqlite_header
+# key: <s3
+# --
+#+begin_src sqlite    :db /path/to/db  
+$0
+#+end_src

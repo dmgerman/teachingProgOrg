@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: b-pg
+# key: b-pg_
+# --
+#+begin_src sql :engine postgresql :cache no :exports both :cmdline ${1:database}
+$0
+#+end_src

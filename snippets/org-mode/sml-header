@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: sml_header
+# key: sml_
+# --
+sml -r -l "(*ref:%s*)"
+$1

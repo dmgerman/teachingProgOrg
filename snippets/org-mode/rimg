@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: r image
+# key: r-img_
+# --
+#+begin_src R  :results graphics :file ${1:file}.png :width 8 :height 8 :res 200 :units cm 
+library(ggplot2)
+library(scales)
+library("RSQLite")
+# connect to the sqlite file
+
+con = dbConnect(SQLite(), dbname=db)
+# get a list of all tables
+# Run query to get results as dataframe
+data = dbGetQuery(con, "select $0;")
+theme_set(theme_gray(base_size = 18))
+gg <- ggplot(data, aes())
+gg <- gg + <type of plot>
+#gg <- gg + scale_x_discrete("X title")
+#gg <- gg + scale_y_continuous("Y title")
+gg 
+#+end_src

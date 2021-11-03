@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: postgresql_header
+# key: <pg
+# --
+#+begin_src sql
+SELECT $0 FROM
+;
+#+end_src

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: c++_header
+# key: C++_
+# --
+#+begin_src C++  :exports both
+#include <iostream>
+int main(void)
+{
+   $0
+
+   return 0;
+}
+#+end_src

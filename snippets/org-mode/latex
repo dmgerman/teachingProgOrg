@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: latex_header
+# key: <la
+# --
+#+begin_src latex    latex :results graphics :file test.png 
+$0
+#+end_src

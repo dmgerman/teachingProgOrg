@@ -1,0 +1,31 @@
+# name: header
+# key: header_
+# --
+#+STARTUP: overview
+#+TITLE: Example 
+# make by default the result of a block its standard output
+#+PROPERTY: header-args         :results output
+# i like to be pedantic
+#+PROPERTY: header-args:C       :main no :flags -std=c99 -Wall --pedantic -Werror
+#  use C+++ instead of C++ (L+ means add arguments to language L)
+#+PROPERTY: header-args:C+++    :main no :flags -std=c++17 -Wall --pedantic -Werror
+# specify the default database
+# result:   guarantees the result is typeset as a table
+# colnames: orgmode does not insert column names, force it to do it
+#+PROPERTY: header-args:sqlite  :db /tmp/rip.db :colnames yes :results  table
+# make sure that ^ and _ do not get interpreted, since they are commonly used
+# in programming (specially _)
+#+OPTIONS: ^:nil
+#
+#
+# Documentation: https://orgmode.org/manual/index.html#Top
+#
+# Types of results: https://orgmode.org/manual/Results-of-Evaluation.html#Results-of-Evaluation
+#  :type  list, scalar,  verbatim, file, 
+#  :format code, drawer, html, latex, link, graphics,  org, pp, raw
+#  :exports code, both, results, none
+#
+# library of babel: maybe the answer is there:
+#  https://orgmode.org/worg/library-of-babel.html
+
+$1
