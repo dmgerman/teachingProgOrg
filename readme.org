@@ -15,7 +15,7 @@
 # in programming (specially _)
 #+OPTIONS: ^:nil
 
-(the table of contents is automatically generated using :TOC: property, see [[./prog_teaching_org.org][emacs code]])
+The explanation below will make more sense if you open this file in *emacs*. That way you will see the headers of each block.
 
 * Table of contents :TOC:
 - [[#how-to-use][How to use]]
