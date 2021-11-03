@@ -18,7 +18,7 @@
 (the table of contents is automatically generated using :TOC: property, see [[./prog_teaching_org.org][emacs code]])
 
 * Table of contents :TOC:
-- [[#todo-test][[TODO] TEST]]
+- [[#test][TEST]]
 - [[#how-to-use][How to use]]
 - [[#why-use-org-mode-for-teaching-programming][Why use org-mode for teaching programming?]]
   - [[#limitations][Limitations]]
@@ -47,7 +47,7 @@
 - [[#conclusion][Conclusion]]
 - [[#ignore][Ignore]]
 
-* [TODO] TEST 
+* TODO TEST 
 
 
 
