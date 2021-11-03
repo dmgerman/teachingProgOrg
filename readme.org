@@ -1,3 +1,4 @@
+#+SEQ_TODO: TODO(t) STARTED(s) DEFERRED(r) CANCELLED(c) | WAITING(w) DELEGATED(d) APPT(a) DONE(d)
 #+STARTUP: overview
 #+TITLE: Example 
 # make by default the result of a block its standard output
@@ -17,6 +18,7 @@
 (the table of contents is automatically generated using :TOC: property, see [[./prog_teaching_org.org][emacs code]])
 
 * Table of contents :TOC:
+- [[#todo-test][[TODO] TEST]]
 - [[#how-to-use][How to use]]
 - [[#why-use-org-mode-for-teaching-programming][Why use org-mode for teaching programming?]]
   - [[#limitations][Limitations]]
@@ -44,6 +46,10 @@
 - [[#some-potential-issues-you-might-encounter][Some potential issues you might encounter]]
 - [[#conclusion][Conclusion]]
 - [[#ignore][Ignore]]
+
+* [TODO] TEST 
+
+
 
 * How to use
 
@@ -499,10 +505,10 @@ print(list(map(square, range(1,10))))
 
 - *|* (pipe character): eg | and || operators in C/C++
 
-  | operator | meaning | note                                                                 |
-  |----------+---------+----------------------------------------------------------------------|
-  | &&       | and     |                                                                      |
-  |          | or      | no way to include a pipe symbol without making it unreadable in org  |
+  | operator | meaning | note                                                                |
+  |----------+---------+---------------------------------------------------------------------+
+  | &&       | and     |                                                                     |
+  |          | or      | no way to include a pipe symbol without making it unreadable in org |
 
   Some database results might contain | and mess the rendering of the result
 
