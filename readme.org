@@ -18,7 +18,6 @@
 (the table of contents is automatically generated using :TOC: property, see [[./prog_teaching_org.org][emacs code]])
 
 * Table of contents :TOC:
-- [[#test][TEST]]
 - [[#how-to-use][How to use]]
 - [[#why-use-org-mode-for-teaching-programming][Why use org-mode for teaching programming?]]
   - [[#limitations][Limitations]]
@@ -34,7 +33,7 @@
   - [[#publishing][publishing]]
   - [[#version-control][version control]]
   - [[#some-nitfy-features][some nitfy features]]
-  - [[#warning-github-only-shows-the-results-if-exports-both][warning: *github* only shows the *#+RESULTS* if *:exports both*]]
+  - [[#exports-both][*:exports both*]]
 - [[#header-args][header-args]]
 - [[#c-specific][C specific]]
   - [[#warning-and-errors][warning and errors]]
@@ -46,10 +45,6 @@
 - [[#some-potential-issues-you-might-encounter][Some potential issues you might encounter]]
 - [[#conclusion][Conclusion]]
 - [[#ignore][Ignore]]
-
-* TODO TEST 
-
-
 
 * How to use
 
@@ -151,15 +146,24 @@ i : 2 4
 ** SQL
 
 #+begin_src sqlite :exports both
+create table R(a, b);
+insert into R values (1, "this"), (2, "is"), (3, "an"), (4, "example");y
+#+end_src
+
+#+RESULTS:
+
+
+#+begin_src sqlite :exports both
 select * from R;
 #+end_src
 
 #+RESULTS:
-| a | b        |
-|---+----------|
-| 1 | test     |
-| 2 | example  |
-| 3 | one more |
+| a | b       |
+|---+---------|
+| 1 | this    |
+| 2 | is      |
+| 3 | an      |
+| 4 | example |
 
 ** Python
 
@@ -210,7 +214,7 @@ summary(mtcars)
 #+end_example
 
 It will automatically insert them.
-- Make sure to run *org-toggle-inline-images* to not nil
+- Make sure to run *org-toggle-inline-images* 
 
 #+begin_src R :file testR.png :results output graphics file  :exports both
 library(lattice)
@@ -245,7 +249,9 @@ Github is a great resource:
  - edit in place
  - automatic scrollbars for long blocks and results
 
-** warning: *github* only shows the *#+RESULTS* if *:exports both*
+** *:exports both*
+
+  - *github* only shows the results of a code block if *:exports both*
   - but it does not respect *header-args*
   - instead, you have to manually add it to each block
 
@@ -505,10 +511,10 @@ print(list(map(square, range(1,10))))
 
 - *|* (pipe character): eg | and || operators in C/C++
 
-  | operator | meaning | note                                                                |
-  |----------+---------+---------------------------------------------------------------------+
-  | &&       | and     |                                                                     |
-  |          | or      | no way to include a pipe symbol without making it unreadable in org |
+  | operator | meaning | 
+  |----------+---------+
+  | &&       | and     |
+  |          | or      |
 
   Some database results might contain | and mess the rendering of the result
 
