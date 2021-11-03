@@ -22,7 +22,6 @@
 - [[#why-use-org-mode-for-teaching-programming][Why use org-mode for teaching programming?]]
   - [[#limitations][Limitations]]
   - [[#how-i-do-it][How I do it]]
-  - [[#my-advice][my advice]]
 - [[#demo][Demo]]
   - [[#cc][C/C++]]
   - [[#sql][SQL]]
@@ -43,41 +42,41 @@
 - [[#python-specific][Python specific]]
 - [[#advanced-org-features][Advanced org-features]]
 - [[#some-potential-issues-you-might-encounter][Some potential issues you might encounter]]
+- [[#final-words][Final words]]
 - [[#conclusion][Conclusion]]
-- [[#ignore][Ignore]]
 
 * How to use
 
-- This repo is self-contained
-
-- If you want to try it, save/rename your .emacs.d configuration files
+- *This repo is self-contained*. It tries to be as easy to use as possible.
+- If you want to *try it*, save/rename your .emacs.d configuration files
   and use this repo instead
-
   - it will install the required dependencies
   - I have used emacs 27.2 (it might run with earlier versions)
+- Then run emacs and open this file (readme.org) or create your own
 
-- Then run emacs and try the file readme.org or create your own
+Then you can decide how to integrate it to your workflow by:
 
-Then you can decide how to integrate it to your workflow:
-
-- Run it as is (I recommend you use [[https://github.com/plexus/chemacs][chemacs]] to switch between your own configuration and this one)
+- Run it as is
+  - I recommend you use [[https://github.com/plexus/chemacs][chemacs]] to switch between your own configuration and this one
   - when teaching, run one instance of emacs specifically configured for this purpose
+
+or
+
 - Cut-and-paste from [[prog_teaching_org.org]] to your own configuration files
 
-Perhaps this code can one day become a module.
+/Perhaps this code can one day become a module./
 
 * Why use org-mode for teaching programming?
 
 - Source and text in one place
 - *More important*: easy to sync _source code and its output_
 - It is a /live/ format:
-  - it can be edited and run during the presentation
-- Very easy to do *on-the-fly* demonstrations
-  - create another org-file
-- Great typesetting of source code
-  - *keyword highlighting* for widely used programming languages
-- Github is a great publishing/collaboration platform
-  - *simple, automatic publishing*
+  - Run the code and see its output from the presentation
+  - Very easy to do /on-the-fly/ demonstrations
+- *Great typesetting* of source code
+  - /keyword highlighting/ for widely used programming languages
+- *Github* is a great publishing/collaboration platform
+  - /simple, automatic publishing/
   - do you need a PDF? print the Github page.
   - worst case, give the students org-files, they will figure it out
 - and you have the full power of *emacs*!!
@@ -88,11 +87,13 @@ Perhaps this code can one day become a module.
 
 - It is not *powerpoint*
   - no animations
-  - not trivial to annotate with a stylus
+  - not trivial to annotate with a stylus (but possible, using Xournal)
+  - not suitable for very large code examples
 
 ** How I do it
 
 - I create *one* long *org file* per *lecture*
+  - I used headers to break "slides"
 - I scroll through it, like *movie credits*
   - Students do not mind
   - They *like that examples are complete and runnable*
@@ -103,20 +104,6 @@ Perhaps this code can one day become a module.
   - Ruby
   - Racket
 
-** my advice
-
-See my [[./dmg-org.org][configuration file]] and demo presentation (link to come).
-
-Some things that are important:
-  - *Typeset* the org-buffer so it is shown *as close as* it is meant *to be presented*
-  - *highlight* the *current line*
-  - set defaults for the properties of the language you are using
-  - use in tandem with *github* (not required, but makes life easier)
-  - use *yasnippets*
-  - make sure you can *easily change the fontsize*
-    - sometimes you need to show more/sometimes less
-  - *experiment!*
-  
 * Demo
 
 Some simple programming examples:
@@ -489,7 +476,7 @@ def square(x):
 #+begin_src python   :exports both :noweb yes
 <<square>> # this is not Python! this is emacs
            # it inserts the blocked name square (see above)
-           # here. i used to avoid duplicating code
+           # here. i used it to avoid duplicating code
 print(list(map(square, range(1,10))))
 #+end_src
 
@@ -510,6 +497,7 @@ print(list(map(square, range(1,10))))
 #+end_example
 
 - *|* (pipe character): eg | and || operators in C/C++
+- Example: I can't add | inside the table. 
 
   | operator | meaning | 
   |----------+---------+
@@ -519,22 +507,23 @@ print(list(map(square, range(1,10))))
   Some database results might contain | and mess the rendering of the result
 
 
+* Final words
+
+See my [[./dmg-org.org][configuration file]] and demo presentation (link to come).
+
+Some things that are important:
+  - *Typeset* the org-buffer so it is shown *as close as* it is meant *to be presented*
+  - *highlight* the *current line*
+  - set defaults for the org-mode properties of the language you are using
+  - use in tandem with *github* (not required, but makes life easier)
+  - use *yasnippets*
+  - make sure you can *easily change the fontsize*
+    - sometimes you need to show more/sometimes less
+  - *experiment!*
+  
 * Conclusion
 
 - org-mode and emacs make for a great environment to teach programming
 - single format where code is executed and its results inserted
 - github is a great tool that can make publishing easy
-
-* Ignore
-
-I frequently leave some code I need to run in this buffer at the end that I need to run during the presentation
-
-#+begin_src emacs-lisp
-(setq left-margin-width 10)
-(setq right-margin-width 10)  
-(setq line-spacing 0.2) 
-#+end_src
-
-#+RESULTS:
-
 
