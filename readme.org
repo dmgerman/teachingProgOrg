@@ -18,25 +18,26 @@
 The explanation below will make more sense if you open this file in *emacs*. That way you will see the headers of each block.
 
 * Table of contents :TOC:
+- [[#presentation][Presentation]]
 - [[#how-to-use][How to use]]
 - [[#why-use-org-mode-for-teaching-programming][Why use org-mode for teaching programming?]]
-  - [[#limitations][Limitations]]
-  - [[#how-i-do-it][How I do it]]
+     - [[#limitations][Limitations]]
+     - [[#how-i-do-it][How I do it]]
 - [[#demo][Demo]]
-  - [[#cc][C/C++]]
-  - [[#sql][SQL]]
-  - [[#python][Python]]
-  - [[#ruby][Ruby]]
-  - [[#r][R]]
+     - [[#cc][C/C++]]
+     - [[#sql][SQL]]
+     - [[#python][Python]]
+     - [[#ruby][Ruby]]
+     - [[#r][R]]
 - [[#github][Github]]
-  - [[#publishing][publishing]]
-  - [[#version-control][version control]]
-  - [[#some-nitfy-features][some nitfy features]]
-  - [[#exports-both][*:exports both*]]
+     - [[#publishing][publishing]]
+     - [[#version-control][version control]]
+     - [[#some-nitfy-features][some nitfy features]]
+     - [[#exports-both][*:exports both*]]
 - [[#header-args][header-args]]
 - [[#c-specific][C specific]]
-  - [[#warning-and-errors][warning and errors]]
-  - [[#using-main-yes][using :main yes]]
+     - [[#warning-and-errors][warning and errors]]
+     - [[#using-main-yes][using :main yes]]
 - [[#c-specific-1][C++ specific]]
 - [[#sql-specific][SQL specific]]
 - [[#python-specific][Python specific]]
@@ -44,6 +45,15 @@ The explanation below will make more sense if you open this file in *emacs*. Tha
 - [[#some-potential-issues-you-might-encounter][Some potential issues you might encounter]]
 - [[#final-words][Final words]]
 - [[#conclusion][Conclusion]]
+
+* Presentation
+
+This is a 20 minute presentation on why use emacs and org-mode to teach programming
+
+#+begin_export html
+<iframe loading="lazy" width="560" height="315" src="https://youtu.be/tSYL-ricWLg" title="Teaching Programming with Emacs and Org-mode" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+#+end_export
 
 * How to use
 
