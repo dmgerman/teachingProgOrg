@@ -86,6 +86,7 @@ mode line. It also uses the font that I prefer.
 ; bind increasing/decreasing font size
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-=") 'text-scale-increase)
 
 ;; make sure that we have at least one fontface
 (defvar dmg-typeface (car (font-family-list))
@@ -209,16 +210,19 @@ This makes:
 ** Configure the size of  the typeface used in headers
 
 #+begin_src emacs-lisp
-  (if window-system
-    (let* ((headline `(:inherit default :weight bold)))
-      (custom-theme-set-faces
-       'user
-       `(org-level-4 ((t (,@headline :height 1.1))))
-       `(org-level-3 ((t (,@headline :height 1.15))))
-       `(org-level-2 ((t (,@headline :height 1.3))))
-       `(org-level-1 ((t (,@headline :background "#E5F4FB" :height 1.5))))
-       `(org-document-title ((t (:height 1.0 :underline nil))))))
-  )
+(if window-system
+  (let* ((headline `(:inherit default :weight bold)))
+    (custom-theme-set-faces
+     'user
+     `(org-level-4 ((t (,@headline :height 1.1))))
+     `(org-level-3 ((t (,@headline :height 1.15))))
+     `(org-level-2 ((t (,@headline :height 1.3))))
+     `(org-level-1 ((t (,@headline :background "#E5F4FB" :height 1.5))))
+     `(org-document-info-keyword ((t (:height 1.1 :underline nil))))
+     `(org-document-info         ((t (:height 1.1 :underline nil))))
+     `(org-meta-line             ((t (:height 0.9 :underline nil))))
+     `(org-document-title        ((t (:height 1.1 :underline nil))))))
+)
 #+end_src
 
 #+RESULTS:
@@ -298,6 +302,46 @@ Saves typing and remembering obscure options. See snippets directory.
   )
 #+end_src
 
+#+begin_src emacs-lisp
+(defun yas/org-src-lang ()
+  "Try to find the current language of the src/header at point.
+Return nil otherwise."
+  (save-excursion
+    (pcase
+        (downcase
+         (buffer-substring-no-properties
+          (goto-char (line-beginning-position))
+          (or (ignore-errors (1- (search-forward " " (line-end-position))))
+              (1+ (point)))))
+      ("#+property:"
+       (when (re-search-forward "header-args:")
+         (buffer-substring-no-properties
+          (point)
+          (or (and (forward-symbol 1) (point))
+              (1+ (point))))))
+      ("#+begin_src"
+       (buffer-substring-no-properties
+        (point)
+        (or (and (forward-symbol 1) (point))
+            (1+ (point)))))
+      ("#+header:"
+       (search-forward "#+begin_src")
+       (+yas/org-src-lang))
+      (_ nil))))
+
+(defun yas/org-last-src-lang ()
+  (interactive)
+  (save-excursion
+    (beginning-of-line)
+    (when (search-backward "#+begin_src" nil t)
+      (yas/org-src-lang))))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+yas/org-last-src-lang
+#+end_example
+
 
 ** less typing
 
@@ -334,7 +378,7 @@ I am used to the old <sTAB expansion...
 - change values to your preference
 
 #+begin_src emacs-lisp
-(defun lecture-begin ()
+(defun lecture-start ()
   (interactive)
   (visual-line-mode 1)
   (dmg-font-size 24)
@@ -383,7 +427,11 @@ C-u COMMAND prompts user where to save the Postscript file (which is then
 converted to PDF at the same location."
     (let*
         ((ps-name (concat (make-temp-file "x-org-block-") ".ps")))
-      
+      (setq ps-print-header nil)
+      (setq ps-print-footer nil)
+      (setq ps-line-spacing 3)
+      (setq ps-font-size 14)
+;      (setq ps-landscape-mode t)
       (ps-print-with-faces (point-min) (point-max) ps-name)
       ;; build command line.. make sure to include spaces and escape parameters
       (shell-command (concat "ps2pdf "  (shell-quote-argument ps-name) " " (shell-quote-argument pdf-name)))

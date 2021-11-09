@@ -3,6 +3,6 @@
 # uuid: src
 # key: <
 # --
-#+begin_src ${1:`(+yas/org-last-src-lang)`}
+#+begin_src ${1:`(yas/org-last-src-lang)`}   :exports both
 
 #+end_src
