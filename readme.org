@@ -51,16 +51,8 @@ The explanation below will make more sense if you open this file in *emacs*. Tha
 
 This is a 20 minute presentation on why use emacs and org-mode to teach programming
 
-#+BEGIN_EXPORT html
-Test 12d
-#+END_EXPORT
 
-#+HTML:<iframe width="420" height="315" src="https://youtu.be/tSYL-ricWLg"></iframe><p>This is a </p>
-
-#+HTML:<iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-
- <iframe loading="lazy" width="560" height="315" src="" title="Teaching Programming with Emacs and Org-mode" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-
+[[https://www.youtube.com/embed/tgbNymZ7vqY]]
 
 
 * How to use
