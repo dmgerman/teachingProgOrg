@@ -55,11 +55,11 @@ This is a 20 minute presentation on why use emacs and org-mode to teach programm
 Test 12d
 #+END_EXPORT
 
-#+begin_export html
+@@html:
 Test
 <iframe loading="lazy" width="560" height="315" src="https://youtu.be/tSYL-ricWLg" title="Teaching Programming with Emacs and Org-mode" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-#+end_export
+@@
 
 * How to use
 
