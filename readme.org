@@ -1,6 +1,6 @@
 #+SEQ_TODO: TODO(t) STARTED(s) DEFERRED(r) CANCELLED(c) | WAITING(w) DELEGATED(d) APPT(a) DONE(d)
 #+STARTUP: overview
-#+TITLE: Example 
+#+TITLE: Teaching Programming with Emacs, org-mode and github
 # make by default the result of a block its standard output
 #+PROPERTY: header-args         :results output
 # i like to be pedantic
