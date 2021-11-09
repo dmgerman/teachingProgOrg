@@ -49,11 +49,9 @@ The explanation below will make more sense if you open this file in *emacs*. Tha
 
 * Presentation
 
-This is a 20 minute presentation on why use emacs and org-mode to teach programming
+This is a 20 minute presentation on why and how I use emacs and org-mode to teach programming
 
-
-[[https://www.youtube.com/embed/tgbNymZ7vqY]]
-
+[[https://youtu.be/tSYL-ricWLg]]
 
 * How to use
 
