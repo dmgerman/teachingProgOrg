@@ -50,6 +50,10 @@ The explanation below will make more sense if you open this file in *emacs*. Tha
 
 This is a 20 minute presentation on why use emacs and org-mode to teach programming
 
+#+BEGIN_EXPORT html
+Test 12d
+#+END_EXPORT
+
 #+begin_export html
 Test
 <iframe loading="lazy" width="560" height="315" src="https://youtu.be/tSYL-ricWLg" title="Teaching Programming with Emacs and Org-mode" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
