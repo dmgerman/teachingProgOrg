@@ -14,7 +14,6 @@
 # make sure that ^ and _ do not get interpreted, since they are commonly used
 # in programming (specially _)
 #+OPTIONS: ^:nil
-#+HTML: Literal HTML code for export
 
 The explanation below will make more sense if you open this file in *emacs*. That way you will see the headers of each block.
 
