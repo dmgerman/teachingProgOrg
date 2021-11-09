@@ -55,6 +55,8 @@ This is a 20 minute presentation on why use emacs and org-mode to teach programm
 Test 12d
 #+END_EXPORT
 
+#+HTML: <p style="border: 1px dotted grey">neato!</p>
+
 @@html:
 Test
 <iframe loading="lazy" width="560" height="315" src="https://youtu.be/tSYL-ricWLg" title="Teaching Programming with Emacs and Org-mode" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
