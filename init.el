@@ -1,5 +1,6 @@
 ;;; init.el --- -*- lexical-binding: t; -*-
 
+(add-to-list 'load-path (concat user-emacs-directory "/lisp"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -7,7 +8,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(good-scroll smooth-scroll yasnippet org-bullets use-package))
+   '(toc-org org-sticky-header org-table-sticky-header good-scroll smooth-scroll yasnippet org-bullets use-package))
  '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -25,12 +26,15 @@
  '(org-block-end-line ((t (:extend t :foreground "darkgrey"))))
  '(org-code ((t (:inherit (shadow fixed-pitch)))))
  '(org-column-title ((t (:foreground "darkgreen" :weight bold))))
+ '(org-document-info ((t (:height 1.1 :underline nil))))
+ '(org-document-info-keyword ((t (:height 1.1 :underline nil))))
  '(org-document-title ((t (:height 1.0 :underline nil))))
  '(org-example ((t (:foreground "darkgreen" :weight bold))))
  '(org-level-1 ((t (:inherit default :weight bold :height 1.5))))
  '(org-level-2 ((t (:inherit default :weight bold :height 1.3))))
  '(org-level-3 ((t (:inherit default :weight bold :height 1.15))))
  '(org-level-4 ((t (:inherit default :weight bold :height 1.1))))
+ '(org-meta-line ((t (:height 0.9 :underline nil))))
  '(org-table-header ((t (:foreground "darkgreen" :weight bold))))
  '(org-verbatim ((t (:foreground "darkblue" :weight bold))))
  '(underline ((t (:foreground "orange" :weight bold))))
@@ -51,3 +55,5 @@
 ;; load it from org file
 
 (org-babel-load-file (concat (file-name-directory load-file-name) "prog_teaching_org.org"))
+
+

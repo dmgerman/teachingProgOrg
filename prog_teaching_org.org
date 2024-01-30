@@ -273,7 +273,7 @@ It requires to have a TOC tag in the header of the file. See top of this file.
    (C . t)
    (ruby . t)
    (python . t)
-;   (sml  . t)
+   (sml  . t)
    (java . t)
    (emacs-lisp . t)
    ))
@@ -361,6 +361,32 @@ The following removes the pesky: "Evaluate this ... code block ...?" question
 
 #+begin_src emacs-lisp
 (setq org-adapt-indentation nil)
+#+end_src
+
+** add support for SML
+
+Warning: you need to have sml installed. The first time you type Ctr-c Ctrl-c twice, you will get an error. Do it again
+and thing will work as expected
+
+#+begin_src emacs-lisp
+(require 'ob-sml)
+
+(defun dmg-sml-mode-hook () "dmg Local defaults for SML mode"
+  (undo-tree-mode -1)
+  (setq sml-indent-level 2)
+;;  (ido-mode -1)
+  (flyspell-mode -1)
+  (flycheck-mode -1)
+  (setq indent-tabs-mode nil)
+)     ; never ever indent with tabs
+
+(use-package "sml-mode"
+    :commands sml-mode
+    :ensure t
+    :defer t
+    :init
+      (add-hook 'sml-mode-hook 'dmg-sml-mode-hook)
+   )
 #+end_src
 
 ** other ends
